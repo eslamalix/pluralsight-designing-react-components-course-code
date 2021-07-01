@@ -6,16 +6,14 @@ function SpeakersList({ showSessions }) {
   const [speakersData, setSpeakersData] = useState(data);
 
   function onFavoriteToggle(id) {
-    const speakersRecPrevious = speakersData.find(function (rec) {
-      return rec.id === id;
-    });
+    const speakersRecPrevious = speakersData.find((rec) => rec.id === id);
     const speakerRecUpdated = {
       ...speakersRecPrevious,
       favorite: !speakersRecPrevious.favorite,
     };
-    const speakersDataNew = speakersData.map(function (rec) {
-      return rec.id === id ? speakerRecUpdated : rec;
-    });
+    const speakersDataNew = speakersData.map((rec) =>
+      rec.id === id ? speakerRecUpdated : rec
+    );
 
     setSpeakersData(speakersDataNew);
   }
